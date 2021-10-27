@@ -1,4 +1,5 @@
 package com.umeyudai.springbootuserregistration.controller;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,7 @@ import com.umeyudai.springbootuserregistration.form.UserDetailForm;
 
 @Controller
 @RequestMapping("/user")
+@Slf4j
 public class UserDetailController {
     @Autowired
     private UserService userService;
@@ -27,6 +29,8 @@ public class UserDetailController {
 
         form = modelMapper.map(user,UserDetailForm.class);
 
+        form.setSalaryList(user.getSalaryList());
+
         model.addAttribute("userDetailForm", form);
 
         return "user/detail";
@@ -34,7 +38,11 @@ public class UserDetailController {
 
     @PostMapping(value = "/detail",params = "update")
     public String updateUser(UserDetailForm form, Model model){
-        userService.updateUserOne(form.getUserId(),form.getPassword(),form.getUserName());
+        try {
+            userService.updateUserOne(form.getUserId(), form.getPassword(), form.getUserName());
+        }catch (Exception e){
+            log.error("ユーザー更新でエラー",e);
+        }
         return "redirect:/user/list";
     }
 
