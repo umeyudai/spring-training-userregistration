@@ -5,6 +5,8 @@ import com.umeyudai.springbootuserregistration.domain.user.model.MUser;
 import com.umeyudai.springbootuserregistration.domain.user.service.UserService;
 import com.umeyudai.springbootuserregistration.repository.UserMapper;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService{
     @Autowired
@@ -15,5 +17,10 @@ public class UserServiceImpl implements UserService{
         user.setDepartmentId(1);
         user.setRole("ROLE_GENERAL");
         mapper.insertOne(user);
+    }
+
+    @Override
+    public List<MUser> getUsers(){
+        return mapper.findMany();
     }
 }
