@@ -33,6 +33,8 @@ dependencies {
     implementation 'org.webjars:webjars-locator:0.40'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4'
+    implementation 'org.modelmapper.extensions:modelmapper-spring:2.3.9'
 }
 
 test {
