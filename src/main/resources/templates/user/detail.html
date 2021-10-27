@@ -40,6 +40,12 @@
                 <th class="w-25">性別</th>
                 <td th:text="*{gender == 1 ? '男性': '女性'}"></td>
             </tr>
+            <tr>
+                <th>部署名</th>
+                <td>
+                    <span th:if="*{department != null}" th:text="*{department.departmentName}"></span>
+                </td>
+            </tr>
             </tbody>
         </table>
         <div class="text-center">

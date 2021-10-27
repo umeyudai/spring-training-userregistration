@@ -11,6 +11,12 @@
         <result column="gender" property="gender"/>
         <result column="department_id" property="departmentId"/>
         <result column="role" property="role"/>
+
+        <association property="department" resultMap="department" />
+    </resultMap>
+    <resultMap type="com.umeyudai.springbootuserregistration.domain.user.model.Department" id="department">
+        <id column="department_id" property="departmentId"/>
+        <result column="department_name" property="departmentName"/>
     </resultMap>
     <insert id="insertOne">
         insert into m_user ( user_id
@@ -47,6 +53,7 @@
     <select id="findOne" resultMap="user">
         select*
         from m_user
+        left join m_department on m_user.department_id = m_department.department_id
         where user_id = #{userId}
     </select>
 
