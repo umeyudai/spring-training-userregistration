@@ -37,6 +37,8 @@ dependencies {
     implementation 'org.modelmapper.extensions:modelmapper-spring:2.3.9'
     implementation 'org.springframework:spring-aop'
     implementation 'org.aspectj:aspectjweaver'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 }
 
 test {
