@@ -6,8 +6,8 @@ INSERT INTO m_user ( user_id
                    , gender
                    , department_id
                    , role)
-VALUES ('system@co.jp', 'password', 'システム管理者', '2000-01-01', 21, 1, 1, 'ROLE_ADMIN')
-     , ('user@co.jp', 'password', 'ユーザー1', '2000-01-01', 21, 2, 2, 'ROLE_GENERAL');
+VALUES ('system@co.jp', '$2a$10$WJKfc.SM5ccsYealgwi1CeM6C11Ou.3nboOCYTBCryLYpJuKZQaNq', 'システム管理者', '2000-01-01', 21, 1, 1, 'ROLE_ADMIN')
+     , ('user@co.jp', '$2a$10$WJKfc.SM5ccsYealgwi1CeM6C11Ou.3nboOCYTBCryLYpJuKZQaNq', 'ユーザー1', '2000-01-01', 21, 2, 2, 'ROLE_GENERAL');
 
 INSERT INTO m_department( department_id
                         , department_name)
