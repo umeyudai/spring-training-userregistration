@@ -39,6 +39,8 @@ dependencies {
     implementation 'org.aspectj:aspectjweaver'
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+    implementation 'org.webjars:datatables:1.10.21'
+    runtimeOnly 'org.webjars:datatables-plugins:1.10.21'
 }
 
 test {
