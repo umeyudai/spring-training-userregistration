@@ -1,4 +1,5 @@
 package com.umeyudai.springbootuserregistration.domain.user.service.impl;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -10,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper mapper;
 
@@ -18,7 +19,7 @@ public class UserServiceImpl implements UserService{
     private PasswordEncoder encoder;
 
     @Override
-    public void signup(MUser user){
+    public void signup(MUser user) {
         user.setDepartmentId(1);
         user.setRole("ROLE_GENERAL");
 
@@ -29,33 +30,33 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public List<MUser> getUsers(MUser user){
+    public List<MUser> getUsers(MUser user) {
         return mapper.findMany(user);
     }
 
     @Override
-    public MUser getUserOne(String userId){
+    public MUser getUserOne(String userId) {
         return mapper.findOne(userId);
     }
 
     @Transactional
     @Override
-    public void updateUserOne(String userId,String password,String userName){
-        mapper.updateOne(userId,password,userName);
+    public void updateUserOne(String userId, String password, String userName) {
+        mapper.updateOne(userId, password, userName);
 
         String encryptPassword = encoder.encode(password);
-        mapper.updateOne(userId,encryptPassword,userName);
+        mapper.updateOne(userId, encryptPassword, userName);
 
-        int i=1/0;
+        //int i = 1 / 0;
     }
 
     @Override
-    public void deleteUserOne(String userId){
+    public void deleteUserOne(String userId) {
         mapper.deleteOne(userId);
     }
 
     @Override
-    public MUser getLoginUser(String userId){
+    public MUser getLoginUser(String userId) {
         return mapper.findLoginUser(userId);
     }
 }
